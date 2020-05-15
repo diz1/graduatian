@@ -10,3 +10,9 @@ import 'mdn-polyfills/Node.prototype.append';
 elementClosest(window);
 
 // Modules
+import Modals from './modules/toggleModals'
+
+document.addEventListener('DOMContentLoaded', () => {
+	const modals = new Modals();
+	modals.init()
+});
