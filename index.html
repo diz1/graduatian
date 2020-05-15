@@ -174,39 +174,44 @@
                              aria-labelledby="headingTwo">
                             <div class="panel-body">
 
-                                <div class="title-text">первый колодец (приемный)</div>
-                                <div class="select-box">
-                                    <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand">
-                                        <option value="1.4">1.4 метра</option>
-                                        <option value="2">2 метра</option>
-                                    </select>
-                                </div>
-                                <div class="select-box">
-                                    <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand">
-                                        <option value="1">1 штука</option>
-                                        <option value="2">2 штуки</option>
-                                        <option value="3">3 штуки</option>
-                                    </select>
+                                <div class="first__well">
+                                    <div class="title-text">первый колодец (приемный)</div>
+                                    <div class="select-box">
+                                        <p><strong>Диаметр</strong></p>
+                                        <select class="form-control expand" id="firstWellDiameter">
+                                            <option value="1.4">1.4 метра</option>
+                                            <option value="2">2 метра</option>
+                                        </select>
+                                    </div>
+                                    <div class="select-box">
+                                        <p><strong>Количество колец</strong></p>
+                                        <select class="form-control expand" id="firstWellRings">
+                                            <option value="1">1 штука</option>
+                                            <option value="2">2 штуки</option>
+                                            <option value="3">3 штуки</option>
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <div class="title-text">второй колодец (дренажный)</div>
-                                <div class="select-box">
-                                    <p><strong>Диаметр</strong></p>
-                                    <select class="form-control expand">
-                                        <option value="1.4">1.4 метра</option>
-                                        <option value="2">2 метра</option>
-                                    </select>
+                                <div class="second__well">
+                                    <div class="title-text">второй колодец (дренажный)</div>
+                                    <div class="select-box">
+                                        <p><strong>Диаметр</strong></p>
+                                        <select class="form-control expand" id="secondWellDiameter">
+                                            <option value="1.4">1.4 метра</option>
+                                            <option value="2">2 метра</option>
+                                        </select>
+                                    </div>
+                                    <div class="select-box">
+                                        <p><strong>Количество колец</strong></p>
+                                        <select class="form-control expand" id="secondWellRings">
+                                            <option value="1">1 штука</option>
+                                            <option value="2">2 штуки</option>
+                                            <option value="3">3 штуки</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="select-box">
-                                    <p><strong>Количество колец</strong></p>
-                                    <select class="form-control expand">
-                                        <option value="1">1 штука</option>
-                                        <option value="2">2 штуки</option>
-                                        <option value="3">3 штуки</option>
-                                    </select>
-                                </div>
+
                                 <a class="button construct-btn" data-toggle="collapse" data-parent="#accordion"
                                    href="#collapseThree"><span>Следующий шаг</span></a>
                             </div>
@@ -255,7 +260,7 @@
                              aria-labelledby="headingFour">
                             <div class="panel-body">
                                 <p>Введите расстояние до дома</p>
-                                <input type="text">
+                                <input type="text" id="distanceToHome">
                                 <button class="button construct-btn call-btn">Получить расчет и скидку</button>
                             </div>
                         </div>

@@ -16,7 +16,7 @@ export default class Form {
 
 	async sendForm(formData) {
 		try {
-			await fetch('/server.php', {
+			const a = await fetch('/server.php', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

@@ -17,26 +17,49 @@ import Modals from './modules/toggleModals';
 import Form from './modules/forms';
 import Accordion from './modules/accordion';
 import Discount from './modules/discount';
-// import Calc from './modules/calc';
+import Calc from './modules/calc';
 
 document.addEventListener('DOMContentLoaded', () => {
 
 	// Инициализация WOW.js
 	new WOW().init();
+	try {
+		// Инициализация и обработка модальных окон
+		new Modals().init();
+	} catch (e) {
+		console.log(e);
+	}
 
-	// Инициализация и обработка модальных окон
-	new Modals().init();
+	try {
+		// Обработка форм
+		new Form().init();
+	} catch (e) {
+		console.log(e);
+	}
 
-	// Обработка форм
-	new Form().init();
+	try {
+		// Конструктор-калькулятор
+		new Calc().init();
+	} catch (e) {
+		console.log(e);
+	}
 
-	// Конструктор-калькулятор
-	// new Calc().init();
+	try {
+		// Кнопка "больше" в блоке с акциями
+		new Discount().init();
+	} catch (e) {
+		console.log(e);
+	}
 
-	// Кнопка "больше" в блоке с акциями
-	new Discount().init();
+	try {
+		// Аккордион
+		new Accordion().init('.constructor');
+		new Accordion().init('.questions');
+	} catch (e) {
+		console.log(e);
+	}
 
-	// Аккордион
-	new Accordion().init('#accordion');
-	new Accordion().init('#accordion-two');
+
+
+
 });

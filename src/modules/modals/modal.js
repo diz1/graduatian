@@ -7,6 +7,7 @@ export default class Modal {
 		modal.node.style.display = 'block';
 		document.body.style.overflowY = 'hidden';
 		modal.node.addEventListener('click', this.clickHandler.bind(modal));
+		modal.isCreated = true;
 	}
 
 	destroy(modal) {
@@ -29,15 +30,20 @@ export default class Modal {
 		}
 	}
 
-	modalFormHandler(e, question = {}) {
+	modalFormHandler(e, question, calcData) {
 		e.preventDefault();
 		const form = new Form();
 		const formData = new FormData(this.form);
-		const data = {
-			user_question: question.value || 'Вопрос не задан'
-		};
+		const data = {};
+		if (question) {
+			data.userQuestion = question.value.trim() || 'Вопрос не был задан';
+		}
+		if (calcData) {
+			data.calc = calcData;
+		}
+
 		formData.forEach((item, index) => data[index] = item);
-		form.sendForm(data)
+		form.sendForm(data);
 	}
 
 	get template() { return `
@@ -67,10 +73,10 @@ export default class Modal {
 		return Object.freeze({
 			tagName: 'button',
 			className: '.popup-close',
-		})
+		});
 	}
 
-	get node() { return document.querySelector(this.popupInfo.className) }
+	get node() { return document.querySelector(this.popupInfo.className); }
 
-	get form() { return this.node.querySelector('form') }
+	get form() { return this.node.querySelector('form'); }
 }
