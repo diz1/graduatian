@@ -1,3 +1,5 @@
+import Form from '../forms';
+
 export default class Modal {
 
 	create(modal) {
@@ -25,6 +27,17 @@ export default class Modal {
 		if (target.matches(Modal.prototype.closeBtn.className) || target.matches(this.popupInfo.className)) {
 			this.destroy(this);
 		}
+	}
+
+	modalFormHandler(e, question = {}) {
+		e.preventDefault();
+		const form = new Form();
+		const formData = new FormData(this.form);
+		const data = {
+			user_question: question.value || 'Вопрос не задан'
+		};
+		formData.forEach((item, index) => data[index] = item);
+		form.sendForm(data)
 	}
 
 	get template() { return `
@@ -59,5 +72,5 @@ export default class Modal {
 
 	get node() { return document.querySelector(this.popupInfo.className) }
 
-
+	get form() { return this.node.querySelector('form') }
 }
