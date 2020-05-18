@@ -30,9 +30,7 @@ export default class Calc {
 		}
 	}
 
-	changeHandler(e) {
-		const target = e.target;
-		console.log(this.data);
+	changeHandler() {
 		this.checkSecondWell();
 		this.calculateResult();
 	}
@@ -140,7 +138,6 @@ export default class Calc {
 		// if (!this.data.isSingle) {
 		// 	cost += 5000;
 		// }
-		console.log(cost);
 
 		// if (this.data.firstWell.diameter === 2) {
 		// 	cost += cost * 0.2;

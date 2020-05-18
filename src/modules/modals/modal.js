@@ -1,5 +1,3 @@
-import Form from '../forms';
-
 export default class Modal {
 
 	create(modal) {
@@ -22,28 +20,28 @@ export default class Modal {
 
 	clickHandler(e)  {
 		const target = e.target;
-
-		// TODO Сделать валидацию форм в модальных окнах
-
 		if (target.matches(Modal.prototype.closeBtn.className) || target.matches(this.popupInfo.className)) {
 			this.destroy(this);
 		}
 	}
 
-	modalFormHandler(e, question, calcData) {
+	modalFormHandler(e, question, calcData, form) {
 		e.preventDefault();
-		const form = new Form();
+		// const form = new Form();
 		const formData = new FormData(this.form);
 		const data = {};
 		if (question) {
-			data.userQuestion = question.value.trim() || 'Вопрос не был задан';
+			data.userQuestion = question.value.trim() ? question.value.trim() : null;
 		}
 		if (calcData) {
 			data.calc = calcData;
 		}
-
 		formData.forEach((item, index) => data[index] = item);
-		form.sendForm(data);
+		if (form.isDblClick(e)) {
+			return false;
+		} else if (form.postForm(e, data)) {
+			return true;
+		}
 	}
 
 	get template() { return `
@@ -54,7 +52,7 @@ export default class Modal {
 			        <form class="capture-form text-center">
 			            <span class="circle"><button class="popup-close" type="button">&times;</button></span>
 			            <label for="name_1">Как к вам обращаться</label>
-			            <input type="text" id="name_1" name="user_name" placeholder="Ваше имя" required>
+			            <input class="name-user" type="text" id="name_1" name="user_name" placeholder="Ваше имя" required>
 			            <label for="phone_1">Ваш телефон для получения скидки</label>
 			            <input class="phone-user" type="text" id="phone_1" name="user_phone" placeholder="+7(___)___-__-__"
 			                   required>
@@ -66,8 +64,8 @@ export default class Modal {
 			        <!-- </div> -->
 			    </div>
 			</div>
-		</div>
-	`}
+		</div>`;
+	}
 
 	get closeBtn() {
 		return Object.freeze({

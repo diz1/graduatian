@@ -1,7 +1,9 @@
-'use strict';
+// Styles
+import './assets/animate.min.css';
+import './assets/ajax.scss';
 
 // Polyfills
-import "@babel/polyfill";
+import '@babel/polyfill';
 import 'nodelist-foreach-polyfill';
 import elementClosest from 'element-closest';
 import 'formdata-polyfill';
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	try {
 		// Обработка форм
-		new Form().init();
+		new Form(3).init();
 	} catch (e) {
 		console.log(e);
 	}
@@ -58,8 +60,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	} catch (e) {
 		console.log(e);
 	}
-
-
-
-
 });
