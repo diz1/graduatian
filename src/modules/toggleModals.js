@@ -12,7 +12,10 @@ export default class Modals {
 		const target = e.target;
 		const popups = { ...Popups };
 		let consultQuestion = '';
-		const calcData = new Calc().data;
+		let calcData = null;
+		if (target.classList.contains('construct-btn')) {
+			calcData = new Calc().data;
+		}
 		for(let i in popups) {
 			const popup = new popups[i]();
 			target.classList.forEach(className => {

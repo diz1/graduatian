@@ -27,7 +27,6 @@ export default class Modal {
 
 	modalFormHandler(e, question, calcData, form) {
 		e.preventDefault();
-		// const form = new Form();
 		const formData = new FormData(this.form);
 		const data = {};
 		if (question) {
