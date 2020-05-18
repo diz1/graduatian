@@ -17,7 +17,7 @@ export default class Form {
 		});
 		document.getElementById('distanceToHome').addEventListener('input', e => {
 			const target = e.target;
-			target.value = target.value.replace( /[^1-9]/gi,'');
+			target.value = target.value.replace( /[^0-9]/gi,'');
 		});
 	}
 

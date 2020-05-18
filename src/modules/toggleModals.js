@@ -17,6 +17,7 @@ export default class Modals {
 			const popup = new popups[i]();
 			target.classList.forEach(className => {
 				if (className.startsWith(popup.popupInfo.className.slice(7))) {
+					e.preventDefault();
 					if (popup.constructor.name === 'PopupConsultation') {
 						target.parentElement.addEventListener('submit', e => {
 							e.preventDefault();
